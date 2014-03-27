@@ -2,16 +2,16 @@
 .Player {
     // Absolutely position entities at 0,0 and use transform to
     // move it around.
-    position: relative;
+    position: absolute;
     top: 0;
     left: 0;
     width: em(50px);
     height: em(71px);
-    z-index: 100;
 
     background-image:url('/images/moyes.png');
 
     transform: translateZ(0);
+    z-index: 1;
 }
 
 
@@ -20,10 +20,9 @@
     // move it around.
     position: absolute;
     top: 21px;
-    left: -42px;
+    left: -32px;
     width: em(50px);
     height: em(71px);
-    z-index: 1;
 
     background-image:url('/images/left-wing.png');
     background-repeat: no-repeat;
@@ -36,10 +35,9 @@
     // move it around.
     position: absolute;
     top: 21px;
-    left: 40px;
+    left: 30px;
     width: em(50px);
     height: em(71px);
-    z-index: 1;
 
     background-image:url('/images/right-wing.png');
     background-repeat: no-repeat;
