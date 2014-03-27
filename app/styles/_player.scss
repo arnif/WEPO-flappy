@@ -2,7 +2,7 @@
 .Player {
     // Absolutely position entities at 0,0 and use transform to
     // move it around.
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: em(50px);
@@ -23,7 +23,7 @@
     left: -42px;
     width: em(50px);
     height: em(71px);
-    z-index: 0;
+    z-index: 1;
 
     background-image:url('/images/left-wing.png');
     background-repeat: no-repeat;
@@ -39,7 +39,7 @@
     left: 40px;
     width: em(50px);
     height: em(71px);
-    z-index: 0;
+    z-index: 1;
 
     background-image:url('/images/right-wing.png');
     background-repeat: no-repeat;

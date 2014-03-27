@@ -42,7 +42,7 @@ window.Player = (function() {
 		// }
         if (Controls.keys.space) {
             // console.log('jump!!');
-            this.pos.y -= delta * SPEED;
+            // this.pos.y -= delta * SPEED;
             $('.RWing').css('transform', 'translateZ(0) rotate(45deg)');
             $('.LWing').css('transform', 'translateZ(0) rotate(-45deg)');
         } else {
