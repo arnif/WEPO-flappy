@@ -17,6 +17,7 @@ window.Player = (function() {
 		this.pos = { x: 0, y: 0 };
 	};
 
+
 	/**
 	 * Resets the state of the player for a new game.
 	 */
@@ -26,29 +27,36 @@ window.Player = (function() {
 	};
 
 	Player.prototype.onFrame = function(delta) {
-		if (Controls.keys.right) {
-			this.pos.x += delta * SPEED;
-		}
-		if (Controls.keys.left) {
-			this.pos.x -= delta * SPEED;
-		}
+
+		// if (Controls.keys.right) {
+		// 	this.pos.x += delta * SPEED;
+		// }
+		// if (Controls.keys.left) {
+		// 	this.pos.x -= delta * SPEED;
+		// }
 		if (Controls.keys.down) {
 			this.pos.y += delta * SPEED;
 		}
-		if (Controls.keys.up) {
-			this.pos.y -= delta * SPEED;
-		}
+		// if (Controls.keys.up) {
+		// 	this.pos.y -= delta * SPEED;
+		// }
         if (Controls.keys.space) {
             // console.log('jump!!');
             this.pos.y -= delta * SPEED;
+            $('.RWing').css('transform', 'translateZ(0) rotate(45deg)');
+            $('.LWing').css('transform', 'translateZ(0) rotate(-45deg)');
         } else {
-            this.pos.y += delta * SPEED;
+            // this.pos.y += delta * SPEED;
+            $('.RWing').css('transform', 'translateZ(0) rotate(-15deg)');
+            $('.LWing').css('transform', 'translateZ(0) rotate(15deg)');
         }
 
 		this.checkCollisionWithBounds();
 
 		// Update UI
 		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+
+
 	};
 
 	Player.prototype.checkCollisionWithBounds = function() {
