@@ -11,7 +11,6 @@
     background-image:url('/images/moyes.png');
 
     transform: translateZ(0);
-    z-index: 1;
 }
 
 
@@ -27,7 +26,11 @@
     background-image:url('/images/left-wing.png');
     background-repeat: no-repeat;
 
+    -webkit-transition: 0.2s ease-in-out;
+    -moz-transition: 0.2s ease-in-out;
+
     transform: translateZ(0);
+    z-index: -1;
 }
 
 .RWing {
@@ -42,5 +45,10 @@
     background-image:url('/images/right-wing.png');
     background-repeat: no-repeat;
 
+    -webkit-transition: 0.2s ease-in-out;
+    -moz-transition: 0.2s ease-in-out;
+
     transform: translateZ(0);
+
+    z-index: -1;
 }
