@@ -7,8 +7,10 @@
 	width: em(400px);
 	margin-left: em(-200px);
 	box-sizing: border-box;
+    border-radius: em(10px);
+    border: em(2px) solid #2ca2ce;
 
-	background: purple;
+	background: white;
 	text-align: center;
 
 	// Keep it off-screen
@@ -24,18 +26,18 @@
 }
 
 .Scoreboard-restart {
-	margin-top: em(200px);
 
+	margin-top: em(200px);
 	font-size: inherit;
 	padding: em(4px) em(15px);
-	border: em(2px) solid white;
+	border: em(2px) solid black;
 	background: none;
 	cursor: pointer;
 }
 
 .Scoreboard-restartText {
 	// NOTICE: You'll lose 10% of your score if you don't change this style!
-	font-family: 'Comic Sans MS', serif;
+	font-family: 'Ubuntu', serif;
 	font-size: em(24px);
-	color: white;
+	color: black;
 }

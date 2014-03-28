@@ -57,12 +57,18 @@ window.Player = (function() {
             this.pos.y += delta * SPEED;
             $('.RWing').css('transform', 'translateZ(0) rotate(-15deg)');
             $('.LWing').css('transform', 'translateZ(0) rotate(15deg)');
+
         }
 
 		this.checkCollisionWithBounds();
 
 		// Update UI
 		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+
+        // var pipex = parseInt($('.Pipe').css('left'));
+        // pipex += delta * SPEED;
+        // console.log(pipex);
+
 
 	};
 

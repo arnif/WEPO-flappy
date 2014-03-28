@@ -3,7 +3,8 @@
 
     position: absolute;
     bottom: 0;
-    left: em(600px);
+    right: 0;
+
     width: em(50px);
     height: em(71px);
 
@@ -11,5 +12,5 @@
 
     transform: translateZ(0);
     width: 100px;
-    height: 100px;
+    height: 180px;
 }
