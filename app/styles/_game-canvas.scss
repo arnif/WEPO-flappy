@@ -21,7 +21,21 @@
     overflow: hidden;
 
     // Some graphics
-    background: rgb(103, 174, 235);
-    //background-image:url('/images/bak.jpg');
+    //background: rgb(103, 174, 235);
+}
+
+.Background {
+    background-image:url('/images/bak3.png');
+    position: relative;
+    background-repeat: repeat-x;
+    height: em(576px);
+    width: em(2048px);
+
+    -webkit-animation: animatedBackground 10s linear infinite;
+}
+
+@-webkit-keyframes animatedBackground {
+  from { background-position: 100% 0; }
+  to { background-position: 0 0; }
 }
 
