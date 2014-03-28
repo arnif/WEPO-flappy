@@ -28,18 +28,18 @@ window.Player = (function() {
 
 	Player.prototype.onFrame = function(delta) {
 
-		// if (Controls.keys.right) {
-		// 	this.pos.x += delta * SPEED;
-		// }
-		// if (Controls.keys.left) {
-		// 	this.pos.x -= delta * SPEED;
-		// }
-		// if (Controls.keys.down) {
-		// 	this.pos.y += delta * SPEED;
-		// }
-		// if (Controls.keys.up) {
-		// 	this.pos.y -= delta * SPEED;
-		// }
+		if (Controls.keys.right) {
+			this.pos.x += delta * SPEED;
+		}
+		if (Controls.keys.left) {
+			this.pos.x -= delta * SPEED;
+		}
+		if (Controls.keys.down) {
+			this.pos.y += delta * SPEED;
+		}
+		if (Controls.keys.up) {
+			this.pos.y -= delta * SPEED;
+		}
         if (Controls.keys.space) {
             // console.log('jump!!');
 
@@ -50,13 +50,13 @@ window.Player = (function() {
 
             this.pos.y -= delta * SPEED;
 
-            $('.RWing').css('transform', 'translateZ(0) rotate(45deg)');
-            $('.LWing').css('transform', 'translateZ(0) rotate(-45deg)');
+            $('.Wing').css('transform', 'translateZ(0) rotate(35deg)');
+
 
         } else {
             this.pos.y += delta * SPEED;
-            $('.RWing').css('transform', 'translateZ(0) rotate(-15deg)');
-            $('.LWing').css('transform', 'translateZ(0) rotate(15deg)');
+            $('.Wing').css('transform', 'translateZ(0) rotate(0)');
+
 
         }
 

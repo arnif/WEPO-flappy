@@ -6,9 +6,9 @@
     top: 0;
     left: 0;
     width: em(50px);
-    height: em(71px);
+    height: em(50px);
 
-    background-image:url('/images/moyes.png');
+    background-image:url('/images/yellow-bird-nowings.png');
 
 
     transform: translateZ(0);
@@ -16,41 +16,22 @@
 }
 
 
-.LWing {
+.Wing {
     // Absolutely position entities at 0,0 and use transform to
     // move it around.
     position: absolute;
     top: 21px;
-    left: -32px;
     width: em(50px);
     height: em(71px);
 
-    background-image:url('/images/left-wing.png');
+    background-image:url('/images/yellow-wing-red-veski.png');
     background-repeat: no-repeat;
 
     -webkit-transition: 0.2s ease-in-out;
     -moz-transition: 0.2s ease-in-out;
 
-    transform: translateZ(0);
-    z-index: -1;
-}
-
-.RWing {
-    // Absolutely position entities at 0,0 and use transform to
-    // move it around.
-    position: absolute;
-    top: 21px;
-    left: 30px;
-    width: em(50px);
-    height: em(71px);
-
-    background-image:url('/images/right-wing.png');
-    background-repeat: no-repeat;
-
-    -webkit-transition: 0.2s ease-in-out;
-    -moz-transition: 0.2s ease-in-out;
+    transform-origin:100% 0;
 
     transform: translateZ(0);
-
-    z-index: -1;
 }
+
