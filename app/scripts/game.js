@@ -48,7 +48,11 @@ window.Game = (function() {
 		this.lastFrame = +new Date() / 1000;
 		window.requestAnimationFrame(this.onFrame);
 		this.isPlaying = true;
-	};
+
+        //var mp3snd = '/sounds/theme.mp3';
+
+        //$('#music').html('<audio autoplay="autoplay" controls loop><source src="'+mp3snd+'" type="audio/mpeg"></audio>');
+    };
 
 	/**
 	 * Resets the state of the game so a new game can be started.
