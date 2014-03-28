@@ -8,9 +8,11 @@ window.Game = (function() {
 	 * @constructor
 	 */
 	var Game = function(el) {
+
 		this.el = el;
+
         this.player = new window.Player(this.el.find('.Player'), this);
-        this.pipe = new window.Pipe(this.el.find('.Pipeup'), this.el.find('.Pipedown'), this);
+        this.pipe = new window.Pipe(el, this);
 		this.isPlaying = false;
 
 		// Cache a bound onFrame since we need it each frame.

@@ -1,24 +1,23 @@
 
-.Pipedown {
+.Pipedown1, .Pipedown2, .Pipedown3  {
 
     position: absolute;
     bottom: 0;
-    right: 0;
 
     background-image:url('/images/pipe.png'), url('/images/p_down.png');
     background-repeat: no-repeat, repeat;
     transform: translateZ(0);
     width: em(100px);
     height: em(180px);
+
 }
 
 
 
-.Pipeup {
+.Pipeup1, .Pipeup2, .Pipeup3 {
 
     position: absolute;
     top: 0;
-    right: 0;
 
     background-image:url('/images/pipeup.png'), url('/images/p_up.png');
     background-repeat:no-repeat, repeat;
@@ -27,5 +26,29 @@
     transform: translateZ(0);
     width: em(100px);
     height: em(280px);
+
 }
 
+.Pipeup1 {
+    right: 0;
+}
+
+.Pipeup2 {
+    right: 0;
+}
+
+.Pipeup3 {
+    right: 0;
+}
+
+.Pipedown1 {
+    right: 0;
+}
+
+.Pipedown2 {
+    right: 0;
+}
+
+.Pipedown3 {
+    right: 0;
+}
