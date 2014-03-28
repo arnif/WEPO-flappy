@@ -5,7 +5,7 @@ window.Player = (function() {
 
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
-	var SPEED = 30; // * 10 pixels per second
+	var SPEED = 20; // * 10 pixels per second
 	var WIDTH = 5;
 	var HEIGHT = 10;
 	var INITIAL_POSITION_X = 30;
@@ -48,13 +48,13 @@ window.Player = (function() {
                 return;
             }
 
-            this.pos.y -= delta * SPEED;
+            this.pos.y -= delta * 2 * SPEED;
 
             $('.Wing').css('transform', 'translateZ(0) rotate(35deg)');
 
 
         } else {
-            this.pos.y += delta * SPEED;
+            this.pos.y += delta * 1.2 * SPEED;
             $('.Wing').css('transform', 'translateZ(0) rotate(0)');
 
 

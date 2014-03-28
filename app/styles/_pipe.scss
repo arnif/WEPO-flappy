@@ -1,18 +1,31 @@
 
-.Pipe {
+.Pipedown {
 
     position: absolute;
     bottom: 0;
     right: 0;
 
-    width: em(50px);
-    height: em(71px);
-
-    background-image:url('/images/pipe.png');
-
+    background-image:url('/images/pipe.png'), url('/images/p_down.png');
+    background-repeat: no-repeat, repeat;
     transform: translateZ(0);
-    width: 100px;
-    height: 180px;
+    width: em(100px);
+    height: em(180px);
 }
 
+
+
+.Pipeup {
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    background-image:url('/images/pipeup.png'), url('/images/p_up.png');
+    background-repeat:no-repeat, repeat;
+    background-position:left bottom;
+
+    transform: translateZ(0);
+    width: em(100px);
+    height: em(280px);
+}
 

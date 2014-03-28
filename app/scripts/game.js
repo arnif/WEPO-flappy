@@ -10,7 +10,7 @@ window.Game = (function() {
 	var Game = function(el) {
 		this.el = el;
         this.player = new window.Player(this.el.find('.Player'), this);
-        this.pipe = new window.Pipe(this.el.find('.Pipe'), this);
+        this.pipe = new window.Pipe(this.el.find('.Pipeup'), this.el.find('.Pipedown'), this);
 		this.isPlaying = false;
 
 		// Cache a bound onFrame since we need it each frame.
@@ -51,9 +51,8 @@ window.Game = (function() {
 		window.requestAnimationFrame(this.onFrame);
 		this.isPlaying = true;
 
-        //var mp3snd = '/sounds/theme.mp3';
-
-        //$('#music').html('<audio autoplay="autoplay" controls loop><source src="'+mp3snd+'" type="audio/mpeg"></audio>');
+        // var mp3snd = '/sounds/theme.mp3';
+        // $('#music').html('<audio style="display: none;"autoplay="autoplay" controls loop><source src="'+mp3snd+'" type="audio/mpeg"></audio>');
     };
 
 	/**
