@@ -2,12 +2,14 @@
 .Pipe {
 
     position: absolute;
-    top: 0;
-    left: 0;
-    // width: em(50px);
-    // height: em(71px);
+    bottom: 0;
+    left: em(600px);
+    width: em(50px);
+    height: em(71px);
 
     background-image:url('/images/pipe.png');
 
     transform: translateZ(0);
+    width: 100px;
+    height: 100px;
 }

@@ -7,7 +7,7 @@ window.Player = (function() {
 	// for 1024x576px canvas.
 	var SPEED = 30; // * 10 pixels per second
 	var WIDTH = 5;
-	var HEIGHT = 5;
+	var HEIGHT = 10;
 	var INITIAL_POSITION_X = 30;
 	var INITIAL_POSITION_Y = 25;
 
@@ -42,9 +42,17 @@ window.Player = (function() {
 		// }
         if (Controls.keys.space) {
             // console.log('jump!!');
+
+            if (this.pos.y + HEIGHT < 0) {
+                console.log('over the border');
+                return;
+            }
+
             this.pos.y -= delta * SPEED;
+
             $('.RWing').css('transform', 'translateZ(0) rotate(45deg)');
             $('.LWing').css('transform', 'translateZ(0) rotate(-45deg)');
+
         } else {
             this.pos.y += delta * SPEED;
             $('.RWing').css('transform', 'translateZ(0) rotate(-15deg)');
@@ -56,13 +64,11 @@ window.Player = (function() {
 		// Update UI
 		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 
-
 	};
 
 	Player.prototype.checkCollisionWithBounds = function() {
 		if (this.pos.x < 0 ||
 			this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
-			this.pos.y < 0 ||
 			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
 			return this.game.gameover();
 		}
