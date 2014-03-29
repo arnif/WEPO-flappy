@@ -99,6 +99,7 @@ window.Game = (function() {
 		// Should be refactored into a Scoreboard class.
 		var that = this;
 		var scoreboardEl = this.el.find('.Scoreboard');
+        $('.Score').html(this.score);
 
 		scoreboardEl
 			.addClass('is-visible')

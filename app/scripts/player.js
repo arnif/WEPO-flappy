@@ -10,6 +10,7 @@ window.Player = (function() {
 	var HEIGHT = 5;
 	var INITIAL_POSITION_X = 30;
 	var INITIAL_POSITION_Y = 25;
+    var scorePipe;
 
 	var Player = function(el, game) {
 		this.el = el;
@@ -24,6 +25,7 @@ window.Player = (function() {
 	Player.prototype.reset = function() {
 		this.pos.x = INITIAL_POSITION_X;
 		this.pos.y = INITIAL_POSITION_Y;
+        this.game.score = 0;
 	};
 
 	Player.prototype.onFrame = function(delta) {
@@ -80,7 +82,7 @@ window.Player = (function() {
         var playerY = Math.floor(this.pos.y);
         // console.log('Player X ' + playerX);
 
-        var scorePipe;
+
 
         for (var i = 0; i < this.game.pipe.pipeArr.length; i++) {
 
@@ -107,9 +109,8 @@ window.Player = (function() {
                     if (scorePipe !== this.game.pipe.pipeArr[i].name) {
                         this.game.score += 1;
                         scorePipe = this.game.pipe.pipeArr[i].name;
-                        console.log('current pip ' + this.game.pipe.pipeArr[i].name);
-                        console.log('pipe scored ' + scorePipe);
-                        // console.log(this.game.score);
+
+                        console.log(this.game.score);
                     }
                 }
             }
