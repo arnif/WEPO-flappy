@@ -48,6 +48,7 @@ window.Game = (function() {
 	Game.prototype.start = function() {
 		this.reset();
 
+
 		// Restart the onFrame loop
 		this.lastFrame = +new Date() / 1000;
 		window.requestAnimationFrame(this.onFrame);
@@ -62,6 +63,7 @@ window.Game = (function() {
 	 */
 	Game.prototype.reset = function() {
 		this.player.reset();
+        this.pipe.reset();
 	};
 
 	/**
