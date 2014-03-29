@@ -5,7 +5,7 @@ window.Player = (function() {
 
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
-	var SPEED = 20; // * 10 pixels per second
+	var SPEED = 30; // * 10 pixels per second
 	var WIDTH = 5;
 	var HEIGHT = 5;
 	var INITIAL_POSITION_X = 30;
@@ -28,12 +28,12 @@ window.Player = (function() {
 
 	Player.prototype.onFrame = function(delta) {
 
-		if (Controls.keys.right) {
-			this.pos.x += delta * SPEED;
-		}
-		if (Controls.keys.left) {
-			this.pos.x -= delta * SPEED;
-		}
+		// if (Controls.keys.right) {
+		// 	this.pos.x += delta * SPEED;
+		// }
+		// if (Controls.keys.left) {
+		// 	this.pos.x -= delta * SPEED;
+		// }
 		if (Controls.keys.down) {
 			this.pos.y += delta * SPEED;
 		}
@@ -77,16 +77,34 @@ window.Player = (function() {
     Player.prototype.checkCollisionWithPipes = function() {
         // console.log(this.game.pipe);
         var playerX = this.pos.x;
-        // var playerY = this.pos.y;
+        var playerY = Math.floor(this.pos.y);
         // console.log('Player X ' + playerX);
-        // console.log('Player Y ' + playerY);
+
         for (var i = 0; i < this.game.pipe.pipeArr.length; i++) {
+
             var pipePosX = Math.floor(this.game.pipe.pipeArr[i].bottom.pos.x);
-            var pipePosY = this.game.pipe.pipeArr[i].bottom.pipe[0].style.height;
+
+            var lowerPipePosY = this.game.pipe.pipeArr[i].bottom.pipe[0].style.height;
+            var topPipePosY = this.game.pipe.pipeArr[i].top.pipe[0].style.height;
             // console.log('Pipe X ' + -pipePosX);
-            if (-pipePosX === playerX) {
-                console.log('SAME X');
-                console.log(pipePosY);
+            lowerPipePosY = Math.floor(this.game.WORLD_HEIGHT - lowerPipePosY.substring(0, lowerPipePosY.length - 2));
+            topPipePosY = Math.floor(topPipePosY.substring(0, topPipePosY.length - 2));
+            // console.log('PipePOS start  '  + (-pipePosX));
+            // console.log('PipePOS end   ' + (-pipePosX - WIDTH * 2));
+            if (-pipePosX >= playerX + WIDTH && (-pipePosX - WIDTH * 2) <= playerX + WIDTH ) {
+                // console.log('between');
+                // console.log('Player Y ' + playerY);
+                // console.log('Pipe Y ' + topPipePosY);
+                // console.log('SAME X');
+                // console.log(lowerPipePosY);
+
+                if (lowerPipePosY < playerY + HEIGHT || topPipePosY > playerY) {
+                    console.log('collision');
+                    // console.log('Player Y ' + playerY);
+                    // console.log('Lower Pipe Y ' + lowerPipePosY);
+
+                    return this.game.gameover();
+                }
             }
         }
     };

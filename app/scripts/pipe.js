@@ -3,6 +3,9 @@ window.Pipe = (function() {
 
     var SPEED = 30;
     var GAP = 15;
+    var divide = 2;
+    var multiPipe2 = 1;
+    var multiPipe3 = 2;
     // var PIPE1_START = 0;
     // var PIPE2_START = this.game.WORLD_WIDTH / 2;
     // var PIPE3_START = this.game.WORLD_WIDTH / 2 * 2;
@@ -23,8 +26,8 @@ window.Pipe = (function() {
         this.game = game;
         this.pipeArr = [
                 { name: 'First', top: new PipeEl(this.el.find('.Pipeup1'), 0, 0), bottom: new PipeEl(this.el.find('.Pipedown1'), 0, 0) },
-                { name: 'Sec', top: new PipeEl(this.el.find('.Pipeup2'), (this.game.WORLD_WIDTH / 3), 0), bottom: new PipeEl(this.el.find('.Pipedown2'), (this.game.WORLD_WIDTH / 3), 0) },
-                { name: 'Third', top: new PipeEl(this.el.find('.Pipeup3'), (this.game.WORLD_WIDTH / 3)*2, 0), bottom: new PipeEl(this.el.find('.Pipedown3'), (this.game.WORLD_WIDTH / 3)*2, 0) }
+                { name: 'Sec', top: new PipeEl(this.el.find('.Pipeup2'), (this.game.WORLD_WIDTH / divide) * multiPipe2, 0), bottom: new PipeEl(this.el.find('.Pipedown2'), (this.game.WORLD_WIDTH / divide) * multiPipe2, 0) },
+                { name: 'Third', top: new PipeEl(this.el.find('.Pipeup3'), (this.game.WORLD_WIDTH / divide) * multiPipe3, 0), bottom: new PipeEl(this.el.find('.Pipedown3'), (this.game.WORLD_WIDTH / divide) * multiPipe3, 0) }
             ];
 
     };
@@ -44,19 +47,17 @@ window.Pipe = (function() {
 
             } else if (this.pipeArr[i].name === 'Sec') {
                 // console.log('sec pipes');
-                this.pipeArr[i].top.pos.x = (this.game.WORLD_WIDTH / 3);
-                this.pipeArr[i].bottom.pos.x = (this.game.WORLD_WIDTH / 3);
+                this.pipeArr[i].top.pos.x = (this.game.WORLD_WIDTH / divide) * multiPipe2;
+                this.pipeArr[i].bottom.pos.x = (this.game.WORLD_WIDTH / divide) * multiPipe2;
             } else if (this.pipeArr[i].name === 'Third') {
                 // console.log('third pipes');
-                this.pipeArr[i].top.pos.x = (this.game.WORLD_WIDTH / 3) *2;
-                this.pipeArr[i].bottom.pos.x = (this.game.WORLD_WIDTH / 3) *2;
+                this.pipeArr[i].top.pos.x = (this.game.WORLD_WIDTH / divide) * multiPipe3;
+                this.pipeArr[i].bottom.pos.x = (this.game.WORLD_WIDTH / divide) * multiPipe3;
             }
 
             this.pipeArr[i].top.pipe.css('height', pipeHeight + 'em');
             this.pipeArr[i].bottom.pipe.css('height', upperHeight + 'em');
-            // this.pipeArr[i].bottom.pos.x = this.pipeArr[i].bottom.pstart;
-            // this.pipeArr[i].top.pos.x = this.pipeArr[i].top.pstart;
-            // console.log(this.pipeArr[i].bottom.pstart);
+
         }
     };
 
@@ -79,8 +80,11 @@ window.Pipe = (function() {
             // console.log(this.pipeArr[i].top.pstart);
             if (this.pipeArr[i].top.pos.x < - this.game.WORLD_WIDTH) {
 
-                this.pipeArr[i].top.pos.x = 10;
-                this.pipeArr[i].bottom.pos.x = 10;
+
+                this.pipeArr[i].top.pos.x = 40;
+                this.pipeArr[i].bottom.pos.x = 40;
+
+
                 var pipeHeight = getRandomInt(7.5, 40);
                 // pipeHeight = em(pipeHeight);
 
@@ -94,49 +98,6 @@ window.Pipe = (function() {
 
 
         }
-
-       // this.pos.x -= delta * SPEED;
-
-        // console.log(this.elup);
-
-        // $.each(this.elup, function(key, value) {
-        //     // console.log(key);
-        //     // console.log(value);
-        //     console.log('out');
-
-        //     for (var i = 0; i < value.length; i++) {
-        //         console.log(value[i]);
-        //         // value[i].css('transform', 'translateZ(0) translateX(' + x + 'em)');
-        //     }
-
-        // });
-
-        // for (var i = 0; i < this.elup.length; i ++) {
-            // console.log(this.elup[i]);
-
-
-            // for (var j = 0; j < this.elup[i].length; j++) {
-                // this.elup[i].First[j].css('transform', 'translateZ(0) translateX(' + this.pos.x + 'em)');
-                // this.eldown.css('transform', 'translateZ(0) translateX(' + this.pos.x + 'em)');
-            // }
-
-            // if (this.pos.x < - this.game.WORLD_WIDTH) {
-
-            //     this.pos.x = 10;
-            //     var pipeHeight = getRandomInt(75, 400);
-            //     pipeHeight = em(pipeHeight);
-
-            //     //calculate upper pipe
-            //     var upperHeight = this.game.WORLD_HEIGHT - (pipeHeight + em(GAP));
-
-            //     // this.eldown.css('height', pipeHeight + 'em');
-            //     this.elup[i].css('height', upperHeight + 'em');
-
-            // }
-
-
-        // }
-
 
 
 
