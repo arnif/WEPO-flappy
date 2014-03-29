@@ -19,6 +19,19 @@ window.Game = (function() {
 		this.onFrame = this.onFrame.bind(this);
 	};
 
+    $('#mute').click(function () {
+        console.log('sid');
+        var audioPlayer = $('#themusic')[0];
+        console.log(audioPlayer);
+
+        if(audioPlayer.muted === false) {
+            audioPlayer.muted = true;
+        } else {
+            audioPlayer.muted = false;
+        }
+    });
+
+
 	/**
 	 * Runs every frame. Calculates a delta and allows each game
 	 * entity to update itself.
@@ -53,9 +66,6 @@ window.Game = (function() {
 		this.lastFrame = +new Date() / 1000;
 		window.requestAnimationFrame(this.onFrame);
 		this.isPlaying = true;
-
-        // var mp3snd = '/sounds/theme.mp3';
-        // $('#music').html('<audio style="display: none;"autoplay="autoplay" controls loop><source src="'+mp3snd+'" type="audio/mpeg"></audio>');
     };
 
 	/**
