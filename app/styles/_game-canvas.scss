@@ -31,7 +31,7 @@
     height: em(576px);
     width: em(2048px);
 
-    -webkit-animation: animatedBackground 10s linear infinite;
+    -webkit-animation: stopBackground 10s linear infinite;
 }
 
 @-webkit-keyframes animatedBackground {
@@ -39,3 +39,7 @@
   to { background-position: 0 0; }
 }
 
+@-webkit-keyframes stopBackground {
+  from { background-position: 0 0; }
+  to { background-position: 0 0; }
+}
