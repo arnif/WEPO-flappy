@@ -3,12 +3,15 @@
 
     position: absolute;
     bottom: 0;
+    right:0;
 
     background-image:url('/images/pipe.png'), url('/images/p_down.png');
     background-repeat: no-repeat, repeat;
-    transform: translateZ(0);
+
     width: em(100px);
     height: em(180px);
+
+    transform: translateZ(0);
 
 }
 
@@ -18,14 +21,16 @@
 
     position: absolute;
     top: 0;
+    right:0;
 
     background-image:url('/images/pipeup.png'), url('/images/p_up.png');
     background-repeat:no-repeat, repeat;
     background-position:left bottom;
 
-    transform: translateZ(0);
     width: em(100px);
     height: em(280px);
+
+    transform: translateZ(0);
 
 }
 

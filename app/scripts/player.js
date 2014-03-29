@@ -7,7 +7,7 @@ window.Player = (function() {
 	// for 1024x576px canvas.
 	var SPEED = 20; // * 10 pixels per second
 	var WIDTH = 5;
-	var HEIGHT = 10;
+	var HEIGHT = 5;
 	var INITIAL_POSITION_X = 30;
 	var INITIAL_POSITION_Y = 25;
 
@@ -53,6 +53,7 @@ window.Player = (function() {
             $('.Wing').css('transform', 'translateZ(0) rotate(35deg)');
 
 
+
         } else {
             this.pos.y += delta * 1.2 * SPEED;
             $('.Wing').css('transform', 'translateZ(0) rotate(0)');
@@ -61,6 +62,7 @@ window.Player = (function() {
         }
 
 		this.checkCollisionWithBounds();
+        this.checkCollisionWithPipes();
 
 		// Update UI
 		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
@@ -71,6 +73,21 @@ window.Player = (function() {
 
 
 	};
+
+    Player.prototype.checkCollisionWithPipes = function() {
+        // console.log(this.game.pipe);
+        var playerX = this.pos.x;
+        // var playerY = this.pos.y;
+        console.log('Player X ' + playerX);
+        // console.log('Player Y ' + playerY);
+        for (var i = 0; i < this.game.pipe.pipeArr.length; i++) {
+            var posX = this.game.pipe.pipeArr[i].bottom.pos.x;
+            console.log('Pipe X ' + posX);
+            if (posX === playerX) {
+                console.log('SAME X');
+            }
+        }
+    };
 
 	Player.prototype.checkCollisionWithBounds = function() {
 		if (this.pos.x < 0 ||
