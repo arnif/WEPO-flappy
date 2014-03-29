@@ -2,8 +2,6 @@
 window.Controls = (function() {
     'use strict';
 
-    var Game = window.game;
-
     /**
      * Key codes we're interested in.
      */
@@ -45,7 +43,7 @@ window.Controls = (function() {
         if (e.keyCode in KEYS || e === 500) {
             var keyName = KEYS[e.keyCode];
             this.keys[keyName] = true;
-            
+
             return false;
         }
     };
@@ -54,9 +52,9 @@ window.Controls = (function() {
         if(e === -1 ){
             this._didJump = true;
         }
-        
+
         if (e.keyCode in KEYS) {
-            
+
             var keyName = KEYS[e.keyCode];
             this.keys[keyName] = false;
             return false;
@@ -74,7 +72,6 @@ window.Controls = (function() {
 
     Controls.prototype.startGame = function(){
         this.gameStarted = true;
-        console.log('hello from startGame');
 
     };
 

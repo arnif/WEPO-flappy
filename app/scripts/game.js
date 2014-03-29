@@ -24,14 +24,17 @@ window.Game = (function() {
         var audioPlayer = $('#themusic')[0];
         // console.log(audioPlayer);
         var effect = $('#flapp')[0];
+        var over = $('#gameover')[0];
 
 
         if(audioPlayer.muted === false) {
             audioPlayer.muted = true;
             effect.muted = true;
+            over.muted = true;
         } else {
             audioPlayer.muted = false;
             effect.muted = false;
+            over.muted = false;
         }
     });
 
@@ -86,19 +89,11 @@ window.Game = (function() {
 		this.isPlaying = false;
 		var keyframes = findKeyframesRule('animatedBackground');
 
-<<<<<<< HEAD
-=======
         document.getElementById('gameover').play();
 
-        console.log(keyframes);
->>>>>>> 4d77b43f48800a0216cdacaa96cb6957f4a3dd6b
         // remove the existing 0% and 100% rules
         keyframes.deleteRule('100%');
-<<<<<<< HEAD
-=======
         keyframes.deleteRule('0');
->>>>>>> 4d77b43f48800a0216cdacaa96cb6957f4a3dd6b
-
 
 		// Should be refactored into a Scoreboard class.
 		var that = this;

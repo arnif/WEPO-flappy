@@ -93,10 +93,6 @@ window.Player = (function() {
             // console.log('PipePOS end   ' + (-pipePosX - WIDTH * 2));
             if (-pipePosX >= playerX + WIDTH && (-pipePosX - WIDTH * 2) <= playerX + WIDTH ) {
                 // console.log('between');
-                // console.log('Player Y ' + playerY);
-                // console.log('Pipe Y ' + topPipePosY);
-                // console.log('SAME X');
-                // console.log(lowerPipePosY);
 
                 if (lowerPipePosY < playerY + HEIGHT || topPipePosY > playerY) {
                     console.log('collision');
