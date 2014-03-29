@@ -83,9 +83,10 @@ window.Game = (function() {
 
         document.getElementById('gameover').play();
 
+        console.log(keyframes);
         // remove the existing 0% and 100% rules
-        keyframes.deleteRule('0%');
         keyframes.deleteRule('100%');
+        keyframes.deleteRule('0');
 
 
 		// Should be refactored into a Scoreboard class.
