@@ -80,11 +80,13 @@ window.Game = (function() {
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
 		var keyframes = findKeyframesRule('animatedBackground');
-        
+
+        document.getElementById('gameover').play();
+
         // remove the existing 0% and 100% rules
         keyframes.deleteRule('0%');
         keyframes.deleteRule('100%');
-		
+
 
 		// Should be refactored into a Scoreboard class.
 		var that = this;
@@ -104,20 +106,20 @@ window.Game = (function() {
     {
         // gather all stylesheets into an array
         var ss = document.styleSheets;
-        
+
         // loop through the stylesheets
         for (var i = 0; i < ss.length; ++i) {
-            
+
             // loop through all the rules
             for (var j = 0; j < ss[i].cssRules.length; ++j) {
-                
+
                 // find the -webkit-keyframe rule whose name matches our passed over parameter and return that rule
                 if (ss[i].cssRules[j].type === window.CSSRule.WEBKIT_KEYFRAMES_RULE && ss[i].cssRules[j].name === rule){
                     return ss[i].cssRules[j];
                 }
             }
         }
-        
+
         // rule not found
         return null;
     }
