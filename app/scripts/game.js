@@ -14,6 +14,7 @@ window.Game = (function() {
         this.player = new window.Player(this.el.find('.Player'), this);
         this.pipe = new window.Pipe(el, this);
 		this.isPlaying = false;
+        this.score = 0;
 
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);

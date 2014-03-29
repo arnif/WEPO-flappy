@@ -80,10 +80,11 @@ window.Player = (function() {
         var playerY = Math.floor(this.pos.y);
         // console.log('Player X ' + playerX);
 
+        var scorePipe;
+
         for (var i = 0; i < this.game.pipe.pipeArr.length; i++) {
 
             var pipePosX = Math.floor(this.game.pipe.pipeArr[i].bottom.pos.x);
-
             var lowerPipePosY = this.game.pipe.pipeArr[i].bottom.pipe[0].style.height;
             var topPipePosY = this.game.pipe.pipeArr[i].top.pipe[0].style.height;
             // console.log('Pipe X ' + -pipePosX);
@@ -100,8 +101,19 @@ window.Player = (function() {
                     // console.log('Lower Pipe Y ' + lowerPipePosY);
 
                     return this.game.gameover();
+
+                } else {
+
+                    if (scorePipe !== this.game.pipe.pipeArr[i].name) {
+                        this.game.score += 1;
+                        scorePipe = this.game.pipe.pipeArr[i].name;
+                        console.log('current pip ' + this.game.pipe.pipeArr[i].name);
+                        console.log('pipe scored ' + scorePipe);
+                        // console.log(this.game.score);
+                    }
                 }
             }
+
         }
     };
 
