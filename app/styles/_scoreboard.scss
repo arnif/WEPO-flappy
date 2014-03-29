@@ -21,13 +21,14 @@
 /**
  * Reset transform to animate it into the correct spot on the screen.
  */
+
 .Scoreboard.is-visible {
 	transform: none;
 }
 
 .Scoreboard-restart {
 
-	margin-top: em(200px);
+	margin-top: em(150px);
 	font-size: inherit;
 	padding: em(4px) em(15px);
 	border: em(2px) solid black;
@@ -36,8 +37,14 @@
 }
 
 .Scoreboard-restartText {
-	// NOTICE: You'll lose 10% of your score if you don't change this style!
 	font-family: 'Ubuntu', serif;
 	font-size: em(24px);
 	color: black;
+}
+
+.Score {
+    font-size: em(114px);
+    position: inherit;
+    margin-left: em(-6px);
+    text-align: inherit;
 }
