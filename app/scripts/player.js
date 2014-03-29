@@ -52,7 +52,7 @@ window.Player = (function() {
 
             $('.Wing').css('transform', 'translateZ(0) rotate(35deg)');
 
-
+            document.getElementById('flapp').play();
 
         } else {
             this.pos.y += delta * 1.2 * SPEED;
