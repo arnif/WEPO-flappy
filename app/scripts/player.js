@@ -78,13 +78,15 @@ window.Player = (function() {
         // console.log(this.game.pipe);
         var playerX = this.pos.x;
         // var playerY = this.pos.y;
-        console.log('Player X ' + playerX);
+        // console.log('Player X ' + playerX);
         // console.log('Player Y ' + playerY);
         for (var i = 0; i < this.game.pipe.pipeArr.length; i++) {
-            var posX = this.game.pipe.pipeArr[i].bottom.pos.x;
-            console.log('Pipe X ' + posX);
-            if (posX === playerX) {
+            var pipePosX = Math.floor(this.game.pipe.pipeArr[i].bottom.pos.x);
+            var pipePosY = this.game.pipe.pipeArr[i].bottom.pipe[0].style.height;
+            // console.log('Pipe X ' + -pipePosX);
+            if (-pipePosX === playerX) {
                 console.log('SAME X');
+                console.log(pipePosY);
             }
         }
     };
