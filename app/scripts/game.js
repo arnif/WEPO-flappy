@@ -80,10 +80,10 @@ window.Game = (function() {
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
 		var keyframes = findKeyframesRule('animatedBackground');
-        
+        console.log(keyframes);
         // remove the existing 0% and 100% rules
-        keyframes.deleteRule('0%');
         keyframes.deleteRule('100%');
+        keyframes.deleteRule('0');
 		
 
 		// Should be refactored into a Scoreboard class.
