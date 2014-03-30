@@ -42,7 +42,7 @@ window.Player = (function() {
 		if (Controls.keys.up) {
 			this.pos.y -= delta * SPEED;
 		}
-        if (Controls.keys.space) {
+        if (Controls.keys.space || Controls.keys.mousedown) {
             // console.log('jump!!');
 
             if (this.pos.y + HEIGHT < 0) {

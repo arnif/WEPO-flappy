@@ -11,7 +11,8 @@ window.Controls = (function() {
         38: 'up',
         39: 'right',
         40: 'down',
-        500: 'tap'
+        500: 'tap',
+        600: 'mousedown'
     };
 
 
@@ -28,7 +29,9 @@ window.Controls = (function() {
         $(window)
             .on('keydown', this._onKeyDown.bind(this))
             .on('keyup', this._onKeyUp.bind(this))
-            .on('tap',this._onKeyUp('500'));
+            .on('tap',this._onKeyUp('500'))
+            .on('mousedown', this._onMouseDown.bind(this))
+            .on('mouseup', this._onMouseUp.bind(this));
     };
 
     Controls.prototype._onKeyDown = function(e) {
@@ -59,6 +62,30 @@ window.Controls = (function() {
             this.keys[keyName] = false;
             return false;
         }
+    };
+
+    Controls.prototype._onMouseDown = function(e) {
+        console.log(e);
+
+        //only jump if mouse is wasnt pressed
+        if (e.type === 'mousedown' && !this.keys.mousedown) {
+            console.log('mousedown');
+            this._didJump = true;
+        }
+        //rember that this button is mousedown
+        var keyName = 'mousedown';
+        this.keys[keyName] = true;
+        return false;
+    };
+
+
+    Controls.prototype._onMouseUp = function(e) {
+        console.log(e);
+        console.log('mouseup');
+        var keyName = 'mousedown';
+        this.keys[keyName] = false;
+        return false;
+
     };
 
     /**

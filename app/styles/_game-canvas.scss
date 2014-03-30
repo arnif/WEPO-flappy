@@ -34,6 +34,19 @@
     -webkit-animation: animatedBackground 10s linear infinite;
 }
 
+.music {
+    position:relative;
+    z-index:20;
+}
+
+#mute {
+    color: black;
+    background-color: red;
+    border: 0;
+    border-radius: 4px;
+    padding: 5px;
+}
+
 @-webkit-keyframes animatedBackground {
   from { background-position: 100% 0; }
   to { background-position: 0 0; }

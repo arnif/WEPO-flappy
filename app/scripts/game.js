@@ -22,6 +22,17 @@ window.Game = (function() {
 
     $('#mute').click(function () {
         // console.log('sid');
+        mute();
+    });
+
+    $('.GameCanvas').keypress(function(event) {
+        if (event.keyCode === 109) {
+            mute();
+        }
+    });
+
+    function mute() {
+
         var audioPlayer = $('#themusic')[0];
         // console.log(audioPlayer);
         var effect = $('#flapp')[0];
@@ -29,15 +40,17 @@ window.Game = (function() {
 
 
         if(audioPlayer.muted === false) {
+            $('#mute').html('Unmute');
             audioPlayer.muted = true;
             effect.muted = true;
             over.muted = true;
         } else {
+            $('#mute').html('Mute');
             audioPlayer.muted = false;
             effect.muted = false;
             over.muted = false;
         }
-    });
+    }
 
 
 	/**
