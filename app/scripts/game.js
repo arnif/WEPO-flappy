@@ -14,7 +14,7 @@ window.Game = (function() {
         this.player = new window.Player(this.el.find('.Player'), this);
         this.pipe = new window.Pipe(el, this);
 		this.isPlaying = false;
-        this.score = 0;
+        this.score = -1;
 
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
@@ -81,12 +81,38 @@ window.Game = (function() {
 	 * Starts a new game.
 	 */
 	Game.prototype.start = function() {
-        this.score = 0;
-		this.reset();
+        
+		
 		// Restart the onFrame loop
-		this.lastFrame = +new Date() / 1000;
-		window.requestAnimationFrame(this.onFrame);
-		this.isPlaying = true;
+		
+		
+		if (this.score === -1) {
+
+		// Should be refactored into a Scoreboard class.
+		var that = this;
+		var StartEl = this.el.find('.Start');
+
+		StartEl
+			.addClass('is-visible')
+			.find('.Start-restart')
+				.one('click', function() {
+					console.log('hi');
+					StartEl.removeClass('is-visible');
+					
+					//that.start();
+					that.reset();
+					that.lastFrame = +new Date() / 1000;
+					window.requestAnimationFrame(that.onFrame);
+					that.isPlaying = true;
+					that.score = 0;
+				});
+				} else {
+					this.reset();
+					this.lastFrame = +new Date() / 1000;
+					window.requestAnimationFrame(this.onFrame);
+					this.isPlaying = true;
+					this.score = 0;
+				}
     };
 
 	/**
