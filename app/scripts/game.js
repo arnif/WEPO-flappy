@@ -89,30 +89,30 @@ window.Game = (function() {
 		if (this.score === -1) {
 
 		// Should be refactored into a Scoreboard class.
-		var that = this;
-		var StartEl = this.el.find('.Start');
+			var that = this;
+			var StartEl = this.el.find('.Start');
 
-		StartEl
-			.addClass('is-visible')
-			.find('.Start-restart')
-				.one('click', function() {
-					console.log('hi');
-					StartEl.removeClass('is-visible');
-					
-					//that.start();
-					that.reset();
-					that.lastFrame = +new Date() / 1000;
-					window.requestAnimationFrame(that.onFrame);
-					that.isPlaying = true;
-					that.score = 0;
-				});
-				} else {
-					this.reset();
-					this.lastFrame = +new Date() / 1000;
-					window.requestAnimationFrame(this.onFrame);
-					this.isPlaying = true;
-					this.score = 0;
-				}
+			StartEl
+				.addClass('is-visible')
+				.find('.Start-restart')
+					.one('click', function() {
+						console.log('hi');
+						StartEl.removeClass('is-visible');
+						
+						//that.start();
+						that.reset();
+						that.lastFrame = +new Date() / 1000;
+						window.requestAnimationFrame(that.onFrame);
+						that.isPlaying = true;
+						that.score = 0;
+					});
+		} else {
+			this.reset();
+			this.lastFrame = +new Date() / 1000;
+			window.requestAnimationFrame(this.onFrame);
+			this.isPlaying = true;
+			this.score = 0;
+		}
     };
 
 	/**
