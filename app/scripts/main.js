@@ -1,5 +1,5 @@
 
-/**
+/**a
  * Bootstrap and start the game.
  */
 $(function() {
