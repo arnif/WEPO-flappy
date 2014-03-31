@@ -14,8 +14,6 @@ window.Pipe = (function() {
     var PipeEl = function(pipe, xCord, yCord) {
 
         this.pipe = pipe;
-        // this.eldown = eldown;
-        // this.game = game;
         this.pos = { x: xCord, y: yCord };
 
     };
@@ -36,7 +34,7 @@ window.Pipe = (function() {
 
         for (var i = 0; i < this.pipeArr.length; i++) {
 
-            var pipeHeight = getRandomInt(7.5, 40);
+            var pipeHeight = getRandomInt(7.5, 35);
 
             var upperHeight = this.game.WORLD_HEIGHT - (pipeHeight + GAP);
 
@@ -85,7 +83,7 @@ window.Pipe = (function() {
                 this.pipeArr[i].bottom.pos.x = 40;
 
 
-                var pipeHeight = getRandomInt(7.5, 40);
+                var pipeHeight = getRandomInt(7.5, 35);
                 // pipeHeight = em(pipeHeight);
 
                 //calculate upper pipe

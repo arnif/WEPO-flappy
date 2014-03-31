@@ -10,12 +10,14 @@ window.Player = (function() {
 	var HEIGHT = 5;
 	var INITIAL_POSITION_X = 30;
 	var INITIAL_POSITION_Y = 25;
-    var scorePipe;
+
 
 	var Player = function(el, game) {
 		this.el = el;
 		this.game = game;
 		this.pos = { x: 0, y: 0 };
+        this.scorePipe = '';
+        this.velocity = 0;
 	};
 
 
@@ -26,6 +28,8 @@ window.Player = (function() {
 		this.pos.x = INITIAL_POSITION_X;
 		this.pos.y = INITIAL_POSITION_Y;
         this.game.score = 0;
+        this.scorePipe = '';
+        this.velocity = 0;
 	};
 
 	Player.prototype.onFrame = function(delta) {
@@ -42,6 +46,8 @@ window.Player = (function() {
 		if (Controls.keys.up) {
 			this.pos.y -= delta * SPEED;
 		}
+
+
         if (Controls.keys.space || Controls.keys.mousedown) {
             // console.log('jump!!');
 
@@ -50,14 +56,17 @@ window.Player = (function() {
                 return;
             }
 
-            this.pos.y -= delta * 2 * SPEED;
+            this.pos.y -= delta * SPEED + (this.velocity * 0.002) * (this.velocity * 0.002) + 0.5;
+            this.velocity = 0;
 
             $('.Wing').css('transform', 'translateZ(0) rotate(35deg)');
 
             document.getElementById('flapp').play();
 
         } else {
-            this.pos.y += delta * 1.2 * SPEED;
+            this.pos.y += delta * SPEED + this.velocity;
+            this.velocity += SPEED * 0.002;
+            // console.log(this.velocity);
             $('.Wing').css('transform', 'translateZ(0) rotate(0)');
 
 
@@ -106,11 +115,11 @@ window.Player = (function() {
 
                 } else {
 
-                    if (scorePipe !== this.game.pipe.pipeArr[i].name) {
+                    if (this.scorePipe !== this.game.pipe.pipeArr[i].name) {
                         this.game.score += 1;
-                        scorePipe = this.game.pipe.pipeArr[i].name;
+                        this.scorePipe = this.game.pipe.pipeArr[i].name;
 
-                        console.log(this.game.score);
+                        // console.log(this.game.score);
                     }
                 }
             }
@@ -121,7 +130,7 @@ window.Player = (function() {
 	Player.prototype.checkCollisionWithBounds = function() {
 		if (this.pos.x < 0 ||
 			this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
-			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
+			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT - 2) {
 			return this.game.gameover();
 		}
 	};

@@ -81,6 +81,7 @@ window.Game = (function() {
 	 * Starts a new game.
 	 */
 	Game.prototype.start = function() {
+        this.score = 0;
 		this.reset();
 		// Restart the onFrame loop
 		this.lastFrame = +new Date() / 1000;
