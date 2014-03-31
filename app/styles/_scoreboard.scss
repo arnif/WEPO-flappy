@@ -1,5 +1,5 @@
 
-.Scoreboard {
+.Scoreboard, .Start{
 	position: absolute;
 	left: 50%;
 	top: em(100px);
@@ -9,6 +9,7 @@
 	box-sizing: border-box;
     border-radius: em(10px);
     border: em(2px) solid #2ca2ce;
+    opacity:0.9;
 
 	background: white;
 	text-align: center;
@@ -43,9 +44,9 @@
 }
 
 .Score {
-    font-family: 'Ubuntu', serif;
+    font-family: impact;
     font-size: em(114px);
     position: inherit;
-    margin-left: em(-3px);
+    margin-left: em(-2px);
     text-align: inherit;
 }

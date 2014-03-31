@@ -58,6 +58,16 @@
     padding: em(5px);
 }
 
+.Game-Score {
+    position: absolute;
+    z-index: 100;
+    font-size: em(40px);
+    margin-left: 49%;
+    top: em(10px);
+    color:white;
+    font-family:impact;
+}
+
 @-webkit-keyframes animatedBackground {
   from { background-position: 100% 0; }
   to { background-position: 0 0; }

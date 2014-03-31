@@ -30,6 +30,9 @@ window.Player = (function() {
         this.game.score = 0;
         this.scorePipe = '';
         this.velocity = 0;
+        $('.Game-Score').show();
+        $('.Game-Score').html('0');
+
 	};
 
 	Player.prototype.onFrame = function(delta) {
@@ -56,7 +59,7 @@ window.Player = (function() {
                 return;
             }
 
-            this.pos.y -= delta * SPEED + (this.velocity * 0.002) * (this.velocity * 0.002) + 0.5;
+            this.pos.y -= delta * SPEED + 0.6;
             this.velocity = 0;
 
             $('.Wing').css('transform', 'translateZ(0) rotate(35deg)');
@@ -65,7 +68,7 @@ window.Player = (function() {
 
         } else {
             this.pos.y += delta * SPEED + this.velocity;
-            this.velocity += SPEED * 0.001;
+            this.velocity += SPEED * 0.0005;
             // console.log(this.velocity);
             $('.Wing').css('transform', 'translateZ(0) rotate(0)');
 
@@ -108,6 +111,7 @@ window.Player = (function() {
 
                 if (lowerPipePosY < playerY + HEIGHT || topPipePosY > playerY) {
                     console.log('collision');
+                    $('.Game-Score').hide();
                     // console.log('Player Y ' + playerY);
                     // console.log('Lower Pipe Y ' + lowerPipePosY);
 
@@ -117,6 +121,7 @@ window.Player = (function() {
 
                     if (this.scorePipe !== this.game.pipe.pipeArr[i].name) {
                         this.game.score += 1;
+                        $('.Game-Score').html(this.game.score);
                         this.scorePipe = this.game.pipe.pipeArr[i].name;
 
                         // console.log(this.game.score);

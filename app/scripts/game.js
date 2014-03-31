@@ -81,11 +81,12 @@ window.Game = (function() {
 	 * Starts a new game.
 	 */
 	Game.prototype.start = function() {
-        
-		
+
+
 		// Restart the onFrame loop
-		
-		
+
+
+
 		if (this.score === -1) {
 
 		// Should be refactored into a Scoreboard class.
@@ -98,13 +99,14 @@ window.Game = (function() {
 				.one('click', function() {
 					console.log('hi');
 					StartEl.removeClass('is-visible');
-					
+
 					//that.start();
 					that.reset();
 					that.lastFrame = +new Date() / 1000;
 					window.requestAnimationFrame(that.onFrame);
 					that.isPlaying = true;
 					that.score = 0;
+                    $('.Player').show();
 				});
 				} else {
 					this.reset();
