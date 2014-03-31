@@ -75,7 +75,7 @@ window.Controls = (function() {
     };
 
     Controls.prototype._onKeyUp = function(e) {
-        
+
 
         if (e.keyCode in KEYS) {
 

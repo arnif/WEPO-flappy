@@ -37,6 +37,8 @@ window.Player = (function() {
 
 	Player.prototype.onFrame = function(delta) {
 
+        // console.log(Controls.didJump());
+
 		// if (Controls.keys.right) {
 		// 	this.pos.x += delta * SPEED;
 		// }
@@ -50,27 +52,30 @@ window.Player = (function() {
 			this.pos.y -= delta * SPEED;
 		}
 
-
-        if (Controls.keys.space || Controls.keys.mousedown) {
+        if ((Controls.keys.space || Controls.keys.mousedown)) {
             // console.log('jump!!');
 
-            if (this.pos.y + HEIGHT < 0) {
-                console.log('over the border');
-                return;
+            if (this.pos.y < -1) {
+                // console.log('over the border');
+
+            } else {
+
+                this.pos.y -= delta * SPEED + 0.6;
+                this.velocity = 0;
+
+                $('.Wing').css('transform', 'translateZ(0) rotate(35deg)');
+                // $('.Player-Container').css('transform', 'translateZ(0) rotate(-45deg)');
+                document.getElementById('flapp').play();
+
             }
 
-            this.pos.y -= delta * SPEED + 0.6;
-            this.velocity = 0;
-
-            $('.Wing').css('transform', 'translateZ(0) rotate(35deg)');
-
-            document.getElementById('flapp').play();
+            // d = Controls.didJump();
 
         } else {
             this.pos.y += delta * SPEED + this.velocity;
             this.velocity += SPEED * 0.0005;
-            // console.log(this.velocity);
             $('.Wing').css('transform', 'translateZ(0) rotate(0)');
+            // $('.Player-Container').css('transform', 'translateZ(0) rotate(45deg)');
 
 
         }
@@ -94,8 +99,6 @@ window.Player = (function() {
         var playerY = Math.floor(this.pos.y);
         // console.log('Player X ' + playerX);
 
-
-
         for (var i = 0; i < this.game.pipe.pipeArr.length; i++) {
 
             var pipePosX = Math.floor(this.game.pipe.pipeArr[i].bottom.pos.x);
@@ -109,13 +112,14 @@ window.Player = (function() {
             if (-pipePosX >= playerX + WIDTH && (-pipePosX - WIDTH * 2) <= playerX + WIDTH ) {
                 // console.log('between');
 
+
                 if (lowerPipePosY < playerY + HEIGHT || topPipePosY > playerY) {
-                    console.log('collision');
+                    // console.log('collision');
                     $('.Game-Score').hide();
                     // console.log('Player Y ' + playerY);
                     // console.log('Lower Pipe Y ' + lowerPipePosY);
 
-                    return this.game.gameover();
+                    // return this.game.gameover();
 
                 } else {
 
