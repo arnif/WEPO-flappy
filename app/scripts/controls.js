@@ -65,11 +65,11 @@ window.Controls = (function() {
     };
 
     Controls.prototype._onMouseDown = function(e) {
-        console.log(e);
+        // console.log(e);
 
         //only jump if mouse is wasnt pressed
         if (e.type === 'mousedown' && !this.keys.mousedown) {
-            console.log('mousedown');
+            // console.log('mousedown');
             this._didJump = true;
         }
         //rember that this button is mousedown
@@ -79,9 +79,9 @@ window.Controls = (function() {
     };
 
 
-    Controls.prototype._onMouseUp = function(e) {
-        console.log(e);
-        console.log('mouseup');
+    Controls.prototype._onMouseUp = function() {
+        // console.log(e);
+        // console.log('mouseup');
         var keyName = 'mousedown';
         this.keys[keyName] = false;
         return false;

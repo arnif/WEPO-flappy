@@ -26,6 +26,7 @@ window.Game = (function() {
     });
 
     $('.GameCanvas').keypress(function(event) {
+        // console.log(event);
         if (event.keyCode === 109) {
             mute();
         }
