@@ -37,7 +37,6 @@ window.Controls = (function() {
     };
 
     Controls.prototype._touchstart = function(e) {
-        console.log(e);
 
         //only jump if mouse is wasnt pressed
         if (e.type === 'touchstart' && !this.keys.touchstart) {
@@ -49,21 +48,20 @@ window.Controls = (function() {
         this.keys[keyName] = true;
         return false;
     };
-    Controls.prototype._touchend = function(e) {
-        console.log(e);
-        console.log('touchend');
+
+    Controls.prototype._touchend = function() {
+        // console.log(e);
+        // console.log('touchend');
         var keyName = 'touchend';
         this.keys[keyName] = false;
         return false;
 
     };
+
     Controls.prototype._onKeyDown = function(e) {
         // Only jump if space wasn't pressed.
         if (e.keyCode === 32 && !this.keys.space) {
             this._didJump = true;
-            if(!this.gameStarted){
-                Controls.prototype.startGame();
-            }
         }
         // Remember that this button is down.
         if (e.keyCode in KEYS) {

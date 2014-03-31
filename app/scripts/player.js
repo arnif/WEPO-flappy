@@ -18,6 +18,7 @@ window.Player = (function() {
 		this.pos = { x: 0, y: 0 };
         this.scorePipe = '';
         this.velocity = 0;
+        this.degs = 0;
 	};
 
 
@@ -64,8 +65,9 @@ window.Player = (function() {
                 this.velocity = 0;
 
                 $('.Wing').css('transform', 'translateZ(0) rotate(35deg)');
-                // $('.Player-Container').css('transform', 'translateZ(0) rotate(-45deg)');
+                // $('.Player').css('transform', 'translateZ(0) rotate(-45deg)');
                 document.getElementById('flapp').play();
+                this.degs = -65;
 
             }
 
@@ -75,7 +77,12 @@ window.Player = (function() {
             this.pos.y += delta * SPEED + this.velocity;
             this.velocity += SPEED * 0.0005;
             $('.Wing').css('transform', 'translateZ(0) rotate(0)');
-            // $('.Player-Container').css('transform', 'translateZ(0) rotate(45deg)');
+            // $('.Player').css('transform', 'translateZ(0) rotate(45deg)');
+            if (Math.floor(this.degs) < 70) {
+                this.degs += delta * SPEED * 8;
+            } else {
+                this.degs = 70;
+            }
 
 
         }
@@ -84,7 +91,7 @@ window.Player = (function() {
         this.checkCollisionWithPipes();
 
 		// Update UI
-		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + this.degs +'deg)');
 
         // var pipex = parseInt($('.Pipe').css('left'));
         // pipex += delta * SPEED;
