@@ -64,7 +64,7 @@ window.Player = (function() {
             document.getElementById('flapp').play();
 
         } else {
-            // this.pos.y += delta * SPEED + this.velocity;
+            this.pos.y += delta * SPEED + this.velocity;
             this.velocity += SPEED * 0.001;
             // console.log(this.velocity);
             $('.Wing').css('transform', 'translateZ(0) rotate(0)');
