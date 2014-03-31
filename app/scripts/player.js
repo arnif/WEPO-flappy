@@ -126,7 +126,7 @@ window.Player = (function() {
                     // console.log('Player Y ' + playerY);
                     // console.log('Lower Pipe Y ' + lowerPipePosY);
 
-                    // return this.game.gameover();
+                    return this.game.gameover();
 
                 } else {
 
