@@ -11,7 +11,8 @@ window.Controls = (function() {
         38: 'up',
         39: 'right',
         40: 'down',
-        500: 'tap',
+        500: 'touchstart',
+        501: 'touchend',
         600: 'mousedown'
     };
 
@@ -29,11 +30,33 @@ window.Controls = (function() {
         $(window)
             .on('keydown', this._onKeyDown.bind(this))
             .on('keyup', this._onKeyUp.bind(this))
-            .on('tap',this._onKeyUp('500'))
+            .on('touchstart',this._touchstart(this))
+            .on('touchend',this._touchend(this))
             .on('mousedown', this._onMouseDown.bind(this))
             .on('mouseup', this._onMouseUp.bind(this));
     };
 
+    Controls.prototype._touchstart = function(e) {
+        console.log(e);
+
+        //only jump if mouse is wasnt pressed
+        if (e.type === 'touchstart' && !this.keys.touchstart) {
+            console.log('touchstart');
+            this._didJump = true;
+        }
+        //rember that this button is mousedown
+        var keyName = 'touchDown';
+        this.keys[keyName] = true;
+        return false;
+    };
+    Controls.prototype._touchend = function(e) {
+        console.log(e);
+        console.log('touchend');
+        var keyName = 'touchend';
+        this.keys[keyName] = false;
+        return false;
+
+    };
     Controls.prototype._onKeyDown = function(e) {
         // Only jump if space wasn't pressed.
         if (e.keyCode === 32 && !this.keys.space) {
@@ -43,7 +66,7 @@ window.Controls = (function() {
             }
         }
         // Remember that this button is down.
-        if (e.keyCode in KEYS || e === 500) {
+        if (e.keyCode in KEYS) {
             var keyName = KEYS[e.keyCode];
             this.keys[keyName] = true;
 
@@ -52,9 +75,7 @@ window.Controls = (function() {
     };
 
     Controls.prototype._onKeyUp = function(e) {
-        if(e === -1 ){
-            this._didJump = true;
-        }
+        
 
         if (e.keyCode in KEYS) {
 
