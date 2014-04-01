@@ -33,8 +33,8 @@ window.Player = (function() {
         this.velocity = 0;
         $('.Game-Score').show();
         $('.Game-Score').html('0');
-
 	};
+
 
 	Player.prototype.onFrame = function(delta) {
 
@@ -65,7 +65,7 @@ window.Player = (function() {
                 this.velocity = 0;
 
                 $('.Wing').css('transform', 'translateZ(0) rotate(35deg)');
-                // $('.Player').css('transform', 'translateZ(0) rotate(-45deg)');
+
                 document.getElementById('flapp').play();
                 this.degs = -65;
 
@@ -77,7 +77,7 @@ window.Player = (function() {
             this.pos.y += delta * SPEED + this.velocity;
             this.velocity += SPEED * 0.0005;
             $('.Wing').css('transform', 'translateZ(0) rotate(0)');
-            // $('.Player').css('transform', 'translateZ(0) rotate(45deg)');
+
             if (Math.floor(this.degs) < 70) {
                 this.degs += delta * SPEED * 8;
             } else {
@@ -88,7 +88,7 @@ window.Player = (function() {
         }
 
 		this.checkCollisionWithBounds();
-        this.checkCollisionWithPipes();
+        // this.checkCollisionWithPipes();
 
 		// Update UI
 		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + this.degs +'deg)');

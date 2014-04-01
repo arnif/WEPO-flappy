@@ -18,7 +18,27 @@ window.Game = (function() {
 
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
+
+        checkSize();
 	};
+
+    $(window).resize(function() {
+        checkSize();
+    });
+
+    function checkSize() {
+        console.log('resize');
+        var w = window.innerWidth / 80;
+        var h = window.innerHeight / 57.6;
+
+        var px = Math.min(w,h);
+
+        if (px > 10 ) {
+            px = 10;
+        }
+        $('.GameCanvas').css('font-size',  px+'px');
+
+    }
 
     $('#mute').click(function () {
         // console.log('sid');
@@ -84,7 +104,8 @@ window.Game = (function() {
 
 
 		// Restart the onFrame loop
-
+        $('.Grass').css('animation-play-state', 'running', '-webkit-animation-play-state', 'running');
+        $('.Background').css('animation-play-state', 'running', '-webkit-animation-play-state', 'running');
 
 
 		if (this.score === -1) {
@@ -115,6 +136,8 @@ window.Game = (function() {
 			window.requestAnimationFrame(this.onFrame);
 			this.isPlaying = true;
 			this.score = 0;
+
+
 		}
 
     };
@@ -133,13 +156,12 @@ window.Game = (function() {
 	 */
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
-		// var keyframes = findKeyframesRule('animatedBackground');
 
         document.getElementById('gameover').play();
 
-        // remove the existing 0% and 100% rules
-        // keyframes.deleteRule('100%');
-        // keyframes.deleteRule('0');
+        $('.Grass').css('animation-play-state', 'paused', '-webkit-animation-play-state', 'paused');
+        $('.Background').css('animation-play-state', 'paused', '-webkit-animation-play-state', 'paused');
+
 
 		// Should be refactored into a Scoreboard class.
 		var that = this;

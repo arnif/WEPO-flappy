@@ -6,10 +6,12 @@
     right:0;
 
     background-image:url('/img/pipe.png'), url('/img/p_down.png');
-    background-repeat: no-repeat, repeat;
+    background-repeat: no-repeat, repeat-y;
+
 
     width: em(100px);
     height: em(180px);
+
 
     transform: translateZ(0);
 
@@ -24,8 +26,10 @@
     right:0;
 
     background-image:url('/img/pipeup.png'), url('/img/p_up.png');
-    background-repeat:no-repeat, repeat;
+    background-repeat:no-repeat, repeat-y;
     background-position:left bottom;
+
+
 
     width: em(100px);
     height: em(280px);

@@ -10,9 +10,10 @@
 
     background-image:url('/img/yellow-bird-nowings.png');
     display: none;
+    background-size:contain;
 
 
-    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
 
 }
 
@@ -21,18 +22,19 @@
     // Absolutely position entities at 0,0 and use transform to
     // move it around.
     position: absolute;
-    top: 21px;
-    width: em(50px);
-    height: em(71px);
+    top: em(21px);
+    width: em(30px);
+    height: em(31px);
 
     background-image:url('/img/yellow-wing-red-veski.png');
     background-repeat: no-repeat;
+
 
     -webkit-transition: 0.2s ease-in-out;
     -moz-transition: 0.2s ease-in-out;
 
     transform-origin:100% 0;
 
-    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
 }
 

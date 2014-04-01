@@ -7,7 +7,7 @@
         <meta charset="utf-8">
         <title>html5 game new</title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
         <link rel="shortcut icon" href="/favicon.ico">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css styles/vendor.css -->
@@ -25,15 +25,17 @@
         <![endif]-->
 
         <div class="GameCanvas">
+            <div class="Top"></div>
+            <div class="Grass"></div>
             <span class="Game-Score"></span>
           <div class="Background">
-            <div class="music">
-                <button id="mute">Mute</button>
-              <audio id="themusic" class="playing" autoplay loop>
-              <source src="sounds/theme.mp3" type="audio/mpeg">
-              </audio>
-            </div>
+
           </div>
+          <div class="music">
+                <button id="mute">Mute</button>
+
+        </div>
+
 
                 <div class="Player">
                     <div class="Wing"></div>
@@ -49,7 +51,7 @@
             <div class="Pipeup3 Pipe"></div>
 
 
-            <div class="Grass"></div>
+
             <div class="Scoreboard">
                 <h1>Game over</h1>
                 <h2>Score:</h2>
@@ -75,6 +77,9 @@
 
               <audio id="gameover">
               <source src="sounds/haha.mp3" type="audio/mpeg">
+              </audio>
+              <audio id="themusic" class="playing" autoplay loop>
+              <source src="sounds/theme.mp3" type="audio/mpeg">
               </audio>
         </div>
 
