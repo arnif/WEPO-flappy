@@ -45,8 +45,24 @@
 
 .Score {
     font-family: impact;
-    font-size: em(114px);
+    font-size: em(55px);
     position: inherit;
     margin-left: em(-2px);
     text-align: inherit;
+    margin-top:em(-4px);
+}
+
+.High-score {
+    font-family: impact;
+    font-size: em(55px);
+    position: inherit;
+    margin-left: em(-2px);
+    text-align: inherit;
+    margin-top:72px;
+}
+
+.High-score-text {
+    position: absolute;
+    margin-top:em(40px);
+    margin-left:em(112px);
 }

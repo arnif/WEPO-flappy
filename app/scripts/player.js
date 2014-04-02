@@ -28,6 +28,7 @@ window.Player = (function() {
 	Player.prototype.reset = function() {
 		this.pos.x = INITIAL_POSITION_X;
 		this.pos.y = INITIAL_POSITION_Y;
+
         this.game.score = 0;
         this.scorePipe = '';
         this.velocity = 0;
@@ -46,12 +47,12 @@ window.Player = (function() {
 		// if (Controls.keys.left) {
 		// 	this.pos.x -= delta * SPEED;
 		// }
-		if (Controls.keys.down) {
-			this.pos.y += delta * SPEED;
-		}
-		if (Controls.keys.up) {
-			this.pos.y -= delta * SPEED;
-		}
+		// if (Controls.keys.down) {
+		// 	this.pos.y += delta * SPEED;
+		// }
+		// if (Controls.keys.up) {
+		// 	this.pos.y -= delta * SPEED;
+		// }
 
         if ((Controls.keys.space || Controls.keys.mousedown)) {
             // console.log('jump!!');
@@ -88,7 +89,7 @@ window.Player = (function() {
         }
 
 		this.checkCollisionWithBounds();
-        // this.checkCollisionWithPipes();
+        this.checkCollisionWithPipes();
 
 		// Update UI
 		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + this.degs +'deg)');

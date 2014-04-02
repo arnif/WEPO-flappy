@@ -12,7 +12,6 @@ window.Controls = (function() {
         39: 'right',
         40: 'down',
         500: 'touchstart',
-        501: 'touchend',
         600: 'mousedown'
     };
 
@@ -39,12 +38,13 @@ window.Controls = (function() {
     Controls.prototype._touchstart = function(e) {
 
         //only jump if mouse is wasnt pressed
+        // console.log(e);
         if (e.type === 'touchstart' && !this.keys.touchstart) {
             console.log('touchstart');
             this._didJump = true;
         }
-        //rember that this button is mousedown
-        var keyName = 'touchDown';
+        //rember that this button is touchstart
+        var keyName = 'touchstart';
         this.keys[keyName] = true;
         return false;
     };
@@ -52,6 +52,7 @@ window.Controls = (function() {
     Controls.prototype._touchend = function() {
         // console.log(e);
         // console.log('touchend');
+        // e.preventDefault();
         var keyName = 'touchend';
         this.keys[keyName] = false;
         return false;

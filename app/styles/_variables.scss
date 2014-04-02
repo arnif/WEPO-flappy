@@ -1,59 +1,59 @@
 
-$base-font-size: 1px;
+$base-font-size: 10px;
 @function em($px, $base: $base-font-size) {
     @return ($px / $base) * 1em;
 }
 
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen 
-and (min-device-width : 320px) 
+@media only screen
+and (min-device-width : 320px)
 and (max-device-width : 480px) {
-	$base-font-size: 1px;
+	$base-font-size: 10px;
 }
 
 /* Smartphones (landscape) ----------- */
-@media only screen 
+@media only screen
 and (min-width : 321px) {
-	$base-font-size: 1px;
+	$base-font-size: 10px;
 }
 
 /* Smartphones (portrait) ----------- */
-@media only screen 
+@media only screen
 and (max-width : 320px) {
-	$base-font-size: 1px;
+	$base-font-size: 10px;
 }
 
 /* iPads (portrait and landscape) ----------- */
-@media only screen 
-and (min-device-width : 768px) 
+@media only screen
+and (min-device-width : 768px)
 and (max-device-width : 1024px) {
-	$base-font-size: 1px;
+	$base-font-size: 10px;
 }
 
 /* iPads (landscape) ----------- */
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
 and (orientation : landscape) {
-	$base-font-size: 1px;
+	$base-font-size: 10px;
 }
 
 /* iPads (portrait) ----------- */
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
 and (orientation : portrait) {
-	$base-font-size: 1px;
+	$base-font-size: 10px;
 }
 
 /* Desktops and laptops ----------- */
-@media only screen 
+@media only screen
 and (min-width : 1224px) {
 	$base-font-size: 10px;
 }
 
 /* Large screens ----------- */
-@media only screen 
+@media only screen
 and (min-width : 1824px) {
 /* Styles */
 }
@@ -62,5 +62,5 @@ and (min-width : 1824px) {
 @media
 only screen and (-webkit-min-device-pixel-ratio : 1.5),
 only screen and (min-device-pixel-ratio : 1.5) {
-	$base-font-size: 1px;
+	$base-font-size: 10px;
 }

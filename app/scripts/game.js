@@ -15,6 +15,7 @@ window.Game = (function() {
         this.pipe = new window.Pipe(el, this);
 		this.isPlaying = false;
         this.score = -1;
+        this.highscore = 0;
 
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
@@ -137,7 +138,6 @@ window.Game = (function() {
 			this.isPlaying = true;
 			this.score = 0;
 
-
 		}
 
     };
@@ -162,11 +162,14 @@ window.Game = (function() {
         $('.Grass').css('animation-play-state', 'paused', '-webkit-animation-play-state', 'paused');
         $('.Background').css('animation-play-state', 'paused', '-webkit-animation-play-state', 'paused');
 
-
+        if (this.score > this.highscore) {
+            this.highscore = this.score;
+        }
 		// Should be refactored into a Scoreboard class.
 		var that = this;
 		var scoreboardEl = this.el.find('.Scoreboard');
         $('.Score').html(this.score);
+        $('.High-score').html(this.highscore);
 
 		scoreboardEl
 			.addClass('is-visible')
@@ -177,27 +180,6 @@ window.Game = (function() {
 				});
 	};
 
-	//This function can find any keyframe given the keyframes name.
-	// function findKeyframesRule(rule) {
- //        // gather all stylesheets into an array
- //        var ss = document.styleSheets;
-
- //        // loop through the stylesheets
- //        for (var i = 0; i < ss.length; ++i) {
-
- //            // loop through all the rules
- //            for (var j = 0; j < ss[i].cssRules.length; ++j) {
-
- //                // find the -webkit-keyframe rule whose name matches our passed over parameter and return that rule
- //                if (ss[i].cssRules[j].type === window.CSSRule.WEBKIT_KEYFRAMES_RULE && ss[i].cssRules[j].name === rule){
- //                    return ss[i].cssRules[j];
- //                }
- //            }
- //        }
-
- //        // rule not found
- //        return null;
- //    }
 
 	/**
 	 * Some shared constants.
